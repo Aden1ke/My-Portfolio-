@@ -7,7 +7,7 @@ import {motion} from "framer-motion";
 const Navbar = () => {
   return (
     <div className='navbar'>
-    {/*sidebar*/}
+    {/*sidebar**/}
     <Sidebar/>
     <div className='wrapper'>
     <motion.span
@@ -15,7 +15,6 @@ const Navbar = () => {
       animate={{opacity:1, scale:1}} 
       transition={{duration:1}}
     >SJ.</motion.span>
-
 
     {/* Navigation Links */}
     <Links />

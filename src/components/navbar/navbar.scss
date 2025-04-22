@@ -2,8 +2,10 @@
   height: 100px;
   display: flex;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 45px;
   position: relative;
+  border: 2px solid red;
+  min-height: 1px;
   //z-index: 10;
 
     .wrapper {
@@ -13,11 +15,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    //border: 2px solid red;
+    border: 2px solid red;
 
     span{
       font-weight: bold;
       font-size: 24px;
+      color: rebeccapurple;
     }
 
     .links {
@@ -53,3 +56,4 @@
     }
   }
 }
+
