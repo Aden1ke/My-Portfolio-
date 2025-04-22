@@ -70,9 +70,9 @@ const Hero = () => {
       >
         Writer Content Creator Influhencer
       </motion.div>
-      <div className="imageContainer">
+    {/*<div className="imageContainer">
         <img src="/hero.png"/>
-      </div>
+      </div>*/}
     </div>
   )
 }

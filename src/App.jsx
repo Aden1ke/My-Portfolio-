@@ -7,6 +7,7 @@ const App = () => {
 	return <div>
 		<section id="Homepage">
     <Navbar/>
+    {/*<Hero>*/}
     <Hero/>
     </section>
 		<section id="Services">parallex</section>

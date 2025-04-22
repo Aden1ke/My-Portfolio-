@@ -1,6 +1,5 @@
 import './navbar.scss'
 import Sidebar from '../sidebar/Sidebar';
-import Links from '../sidebar/components/links/Links';
 import {motion} from "framer-motion";
 
 
@@ -15,12 +14,9 @@ const Navbar = () => {
       animate={{opacity:1, scale:1}} 
       transition={{duration:1}}
     >SJ.</motion.span>
+    <div className='navbars'>
 
-
-    {/* Navigation Links */}
-    <Links />
-
-
+    </div>
     <div className='socials'>
     <a href='#'><img src='/linkedin.png' alt=''/></a>
     <a href='#'><img src='/x.png' alt=''/></a>
