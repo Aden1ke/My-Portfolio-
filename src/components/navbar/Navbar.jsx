@@ -7,8 +7,8 @@ import {motion} from "framer-motion";
 const Navbar = () => {
   return (
     <div className='navbar'>
-    {/*sidebar**/}
-    <Sidebar/>
+    {/*sidebar**
+    <Sidebar/>*/}
     <div className='wrapper'>
     <motion.span
       initial={{opacity:0, scale:0.5}} 
@@ -19,12 +19,13 @@ const Navbar = () => {
     {/* Navigation Links */}
     <Links />
 
-
+      
     <div className='socials'>
     <a href='#'><img src='/linkedin.png' alt=''/></a>
     <a href='#'><img src='/x.png' alt=''/></a>
     <a href='#'><img src='/instagram.png' alt=''/></a>
     </div>
+    <Sidebar /> {/* ← Moved inside */}
     </div>
     </div>
   )
