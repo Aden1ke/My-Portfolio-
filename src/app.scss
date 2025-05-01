@@ -18,7 +18,8 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  background-color: #0c0c1d;
+  //background-color: #0c0c1d;
+  background: linear-gradient(#0c0c1d, #111132);
   color: lightgray;
   font-family: "DM Sans", sans-serif;
   padding-top: 100px; // Space for fixed navbar
@@ -48,7 +49,3 @@ section {
   }
 }
 
-// Consistent content width
-//.section-content {
- // max-width: 1200px;
-//  margin: 0 auto
