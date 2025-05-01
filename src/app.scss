@@ -18,8 +18,7 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  //background-color: #0c0c1d;
-  background: linear-gradient(#0c0c1d, #111132);
+  background-color: #0c0c1d;
   color: lightgray;
   font-family: "DM Sans", sans-serif;
   padding-top: 100px; // Space for fixed navbar
@@ -28,8 +27,8 @@ body {
 section {
   height: 100vh;
   scroll-snap-align: start; // Changed from 'center' to fix gaps
-  padding: 0 45px;
-  position: relative;
+  width: 100%; // Changed from 100vw
+  overflow-x: hidden;
   //border: 2px solid red;
   
   // Mobile adjustments
@@ -37,7 +36,6 @@ section {
     scroll-snap-align: none; // Disable on mobile
     height: auto;
     min-height: 100vh;
-    padding: 80px 20px 20px;
   }
 
   // Remove gap between sections
@@ -48,4 +46,3 @@ section {
     margin-top: -1px;
   }
 }
-
