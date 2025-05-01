@@ -1,0 +1,68 @@
+
+/* Reset CSS */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img {
+  border-style: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+html{
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+body{
+  background-color: #0c0c1d;
+  color: lightgray;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+section{
+  height: 100vh;
+  scroll-snap-align: center;
+  border: 2px solid red;
+  padding: 100px 20px 0;
+  // Remove debug borders
+  border: none;
+  @media (max-width: 768px) {
+    height: auto;
+    min-height: 100vh;
+  }
+}

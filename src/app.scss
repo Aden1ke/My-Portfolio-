@@ -1,26 +1,54 @@
-html{
+/* Reset CSS */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  scroll-padding-top: 100px; // Match navbar height
 }
 
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "DM Sans", sans-serif;
-}
-
-body{
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
   background-color: #0c0c1d;
   color: lightgray;
+  font-family: "DM Sans", sans-serif;
+  padding-top: 100px; // Space for fixed navbar
 }
 
-a{
-  text-decoration: none;
-  color: inherit;
-}
-
-section{
+section {
   height: 100vh;
-  scroll-snap-align: center;
+  scroll-snap-align: start; // Changed from 'center' to fix gaps
+  padding: 0 45px;
+  position: relative;
+  //border: 2px solid red;
+  
+  // Mobile adjustments
+  @media (max-width: 768px) {
+    scroll-snap-align: none; // Disable on mobile
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 20px 20px;
+  }
+
+  // Remove gap between sections
+  &:not(:first-child)::before {
+    content: '';
+    display: block;
+    height: 1px;
+    margin-top: -1px;
+  }
 }
+
+// Consistent content width
+//.section-content {
+ // max-width: 1200px;
+//  margin: 0 auto

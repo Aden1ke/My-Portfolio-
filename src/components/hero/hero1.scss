@@ -1,11 +1,15 @@
 .hero {
-  height: calc(100vh - 100px);
+  //height: calc(100vh - 100px);
   overflow: hidden;
   position: relative;
   background: linear-gradient(#0c0c1d, #111132);
-  //padding: 0 45px;
-  padding-top: 120px;
+  //padding: 0 20px;
+  //padding-top: 120px;
+  //padding: 120px 45px 0;
   border: 2px solid red;
+  height: 100vh; // Use full viewport height
+  min-height: 100vh; // Prevent content squishing
+  overflow: visible; // Allow content to breathe
 
 
   .wrapper {
@@ -13,9 +17,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  //border: 2px solid red;
+  //width: 100%;
+  //height: 100%;
+  height: calc(100% - 120px);
+  border: 2px solid red;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 45px;
 
     .textContainer {
       width: 100%;
@@ -26,6 +34,7 @@
       justify-content: center;
       gap: 10px;
       order: 0;
+      flex: 1;
 
       img {
         width: 40px;
@@ -122,11 +131,11 @@
   }
 
   @media (min-width: 769px) {
-    padding-top: 0px;
     .wrapper {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
   
 
     .textContainer {
@@ -170,3 +179,4 @@
     }
   }
 }
+
