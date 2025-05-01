@@ -20,11 +20,11 @@ const Navbar = () => {
     <Links />
 
       
-    <div className='socials'>
+    {/* <div className='socials'>
     <a href='#'><img src='/linkedin.png' alt=''/></a>
     <a href='#'><img src='/x.png' alt=''/></a>
     <a href='#'><img src='/instagram.png' alt=''/></a>
-    </div>
+    </div>*/}
     <Sidebar /> {/* ← Moved inside */}
     </div>
     </div>
