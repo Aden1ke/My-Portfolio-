@@ -1,9 +1,16 @@
 import './about.scss';
+import SkillsSphere from './SkillsBall';
 import { motion } from 'framer-motion';
-import React from 'react';
-import SkillsSphere from './SkillsSphere'
 
-const About = () => { 
+const About = () => {
+ const skills = [
+  { icon: '/js-icon.png', name: 'JavaScript' },
+  { icon: '/ts-icon.png', name: 'TypeScript' },
+  { icon: '/react-icon.png', name: 'React' },
+  { icon: '/node-icon.png', name: 'Node.js' },
+  { icon: '/git-icon.png', name: 'Git' },
+  { icon: '/python-icon.png', name: 'Python' },
+];
 
 
   const containerVariants = {
@@ -184,7 +191,21 @@ const About = () => {
         </div>
       </div>
 
-    <SkillsSphere />
+    <motion.div
+        className="skills-section"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ margin: "-100px", once: true }}
+        transition={{ duration: 0.5 }}
+      >
+    <h3 className="skills-title">Technical Skills</h3>
+        <div className="skills-container">
+          {skills.map((skill, index) => (
+            <SkillBall key={index} {...skill} />
+          ))}
+        </div>
+      </motion.div>
+      
     </div>
   );
 };

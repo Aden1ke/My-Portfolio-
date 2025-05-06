@@ -73,8 +73,6 @@
       .content {
         width: calc(50% - 80px);
         padding: 30px;
-        //background: #1d1836;
-        //background: linear-gradient(#0c0c1d, #111132);
         background:  rebeccapurple;
         border-radius: 15px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.3);
@@ -137,8 +135,131 @@
       }
     }
   }
+  // Updated SCSS stylee
+  // about.scss
+.skills-sphere {
+  padding: 4rem 0;
+  text-align: center;
+  perspective: 1000px;
+
+  .skills-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--accent);
+    position: relative;
+    
+    &::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: rebeccapurple;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.sphere-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.skill-bubble {
+  background: radial-gradient(circle at 30% 30%, 
+    rgba(255,255,255,0.8) 0%, 
+    var(--primary) 120%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 
+    0 15px 35px rgba(0,0,0,0.2),
+    0 3px 10px rgba(0,0,0,0.2),
+    inset 0 -5px 15px rgba(0,0,0,0.1),
+    inset 0 5px 15px rgba(255,255,255,0.2);
+  transform-style: preserve-3d;
+  position: relative;
+  transition: transform 0.3s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: inset 0 0 25px rgba(255,255,255,0.3);
+    filter: blur(5px);
+  }
+
+  .bubble-content {
+    transform: translateZ(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    //filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+  }
+
+  .skill-name {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  &:hover {
+    .skill-icon {
+      transform: scale(1.1) translateZ(10px);
+    }
+  }
+}
+
 
   @media (max-width: 768px) {
+
+  .skills-sphere {
+    padding: 3rem 0;
+    
+    .skills-title {
+      font-size: 2rem;
+    }
+  }
+
+  .sphere-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .skill-bubble {
+    width: 100px;
+    height: 100px;
+    
+    .skill-icon {
+      width: 30px;
+      height: 30px;
+    }
+    
+    .skill-name {
+      font-size: 0.8rem;
+    }
+  }
     .timeline {
       &-line {
         display: none;
@@ -176,6 +297,29 @@
             order: initial !important;
           }
         }
+      }
+    }
+  }
+
+  // Additional breakpoint for very small screens
+  @media (max-width: 480px) {
+    .sphere-container {
+      grid-template-columns: repeat(2, 1fr); // Keep 2 columns but make them smaller
+      gap: 0.8rem;
+      max-width: 300px;
+    }
+
+    .skill-bubble {
+      width: 80px;
+      height: 80px;
+      
+      .skill-icon {
+        width: 30px;
+        height: 30px;
+      }
+      
+      .skill-name {
+        font-size: 0.65rem;
       }
     }
   }
