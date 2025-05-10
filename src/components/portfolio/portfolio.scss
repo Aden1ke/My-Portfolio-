@@ -1,9 +1,10 @@
 // portfolio.scss
 .portfolio {
-  height: 100vh; /* Fix height so it becomes a scroll container */
+  height: 100vh; 
   overflow-y: scroll;
   position: relative;
   padding: 0 20px;
+  isolation: isolate;
 
   .progress {
     position: sticky;
