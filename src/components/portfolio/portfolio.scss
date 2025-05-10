@@ -5,6 +5,7 @@
   position: relative;
   padding: 0 20px;
   isolation: isolate;
+  //border: 2px solid red;
 
   .progress {
     position: sticky;
@@ -105,12 +106,7 @@
 
         .imageContainer {
           flex: 1;
-     //     height: 50%;
           order: 0;
-
-          img {
-           // height: 100%;
-          }
         }
 
         .textContainer {

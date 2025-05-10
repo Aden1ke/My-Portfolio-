@@ -79,6 +79,7 @@ function Contact() {
         >
           <svg width='450px' height='450px' viewBox='0 0 32.666 32.666'>
             <motion.path
+              key={isInView ? Date.now() : 'hidden'}
               strokeWidth={0.2}
               fill='none'
               initial={{ pathLength: 0 }}
@@ -104,6 +105,7 @@ function Contact() {
         <motion.form
           ref={formRef}
           onSubmit={sendEmail}
+          key={`form-${Date.now()}`} 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 3, duration: 1 }}
