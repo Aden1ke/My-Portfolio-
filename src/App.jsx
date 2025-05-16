@@ -1,9 +1,11 @@
 import './app.scss'
+//import Sidebar from './components/sidebar/Sidebar';
 import Navbar from './components/navbar/Navbar';
-import Hero from './components/hero/Hero';
+import Home from './components/home/Home';
 import About from './components/about/About';
-import Portfolio from './components/portfolio/Portfolio';
 import Contact from './components/contact/Contact';
+import Projects from "./components/projects/Projects";
+
 
 
 const App = () => {
@@ -11,13 +13,13 @@ const App = () => {
 		<section id="Homepage">
     <Navbar/>
     {/*<Hero>*/}
-    <Hero/>
+    <Home/>
     </section>
 		<section id="About">
     <About/>
     </section>
-		<section id="Portfolio">
-    <Portfolio/>
+		<section id="Projects">
+    <Projects/>
     </section>
 		<section id="Contact">
     <Contact />
