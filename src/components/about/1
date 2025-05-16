@@ -3,12 +3,6 @@
   padding: 3rem 1rem;
   color: #fff;
   position: relative;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-
-  &::-webkit-scrollbar {  /* Chrome, Safari, Edge */
-    display: none;
-  }
 
   .timeline-title {
     text-align: center;

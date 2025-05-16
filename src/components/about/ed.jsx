@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
-import './about.scss';
+import 'react-vertical-timeline-component/style.min.css'; // default styles
+import './about.scss'; // your custom overrides (optional)
 import { motion } from 'framer-motion';
 import SkillsSphere from './SkillsSphere';
+
 
 const personalEvents = [
   {
@@ -33,33 +34,13 @@ const personalEvents = [
 ];
 
 const About = () => {
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const checkViewport = () => {
-      setIsDesktop(window.innerWidth >= 768);
-    };
-
-    checkViewport();
-    window.addEventListener('resize', checkViewport);
-
-    return () => window.removeEventListener('resize', checkViewport);
-  }, []);
-
   return (
     <section className="about-timeline">
       <h2 className="timeline-title">My Journey</h2>
-      <VerticalTimeline>
+      <VerticalTimeline lineColor="#fff">
         {personalEvents.map((event, index) => (
           <VerticalTimelineElement
             key={index}
-            className={
-              isDesktop
-                ? index % 2 === 0
-                  ? 'vertical-timeline-element--left'
-                  : 'vertical-timeline-element--right'
-                : ''
-            }
             contentStyle={{ background: '#1d1836', color: '#fff' }}
             contentArrowStyle={{ borderRight: '7px solid #1d1836' }}
             iconStyle={{ background: '#915EFF', color: '#fff' }}
@@ -80,7 +61,7 @@ const About = () => {
         ))}
       </VerticalTimeline>
 
-      <SkillsSphere />
+     <SkillsSphere />
     </section>
   );
 };
