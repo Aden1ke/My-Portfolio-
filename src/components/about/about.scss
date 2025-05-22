@@ -3,64 +3,19 @@
   padding: 3rem 1rem;
   color: #fff;
   position: relative;
-  overflow-x: hidden;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-
-  &::-webkit-scrollbar {  /* Chrome, Safari, Edge */
-    display: none;
-  }
 
   .timeline-title {
     text-align: center;
     font-weight: bold;
     margin-bottom: 2rem;
-    font-size: 2.5rem;
-  }
-
-  .vertical-timeline {
-    &::before {
-      background: #fff;
-      left: 50% !important;
-      margin-left: -1px !important;
-    }
-  }
-
-  .vertical-timeline-element-content {
-    overflow: visible;
-    width: 90%;
-    max-width: 600px;
-    margin: 1rem auto;
-    box-sizing: border-box;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-    p {
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    @media (min-width: 768px) {
-      width: 45%;
-      margin: 1rem 0;
-    }
   }
 
   .timeline-flip-card {
-    width: 100%;
-    max-width: 600px;
-    min-height: 550px;
-    height: auto;
     perspective: 1000px;
-    margin: 0 auto 2rem;
     position: relative;
-
-    @media (max-width: 768px) {
-      width: 90%;
-      min-height: 300px;
-    }
+    width: 100%;
+    //min-height: 280px;
+    //border: 1px solid red;
   }
 
   .timeline-flip-inner {
@@ -80,60 +35,33 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     top: 0;
     left: 0;
-    backface-visibility: hidden;
-    box-sizing: border-box;
-    padding: 1.5rem;
+  }
+
+  .timeline-flip-front {
+    z-index: 2;
   }
 
   .timeline-flip-back {
     transform: rotateY(180deg);
     display: flex;
     flex-wrap: wrap;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
-    background: #1d1836;
 
     img {
       width: 100%;
-      max-width: 300px;
-      height: auto;
+      height: 280px;
       object-fit: cover;
       border-radius: 8px;
       border: 2px solid #fff;
-
-      @media (max-width: 480px) {
-        max-width: 150px;
-      }
     }
   }
 
-  @media (max-width: 768px) {
-    .vertical-timeline-element-content {
-      width: 90% !important;
-      margin: 1rem auto !important;
-    }
-
-    .timeline-flip-inner {
-      flex-direction: column;
-    }
-
-    .timeline-flip-back {
-      flex-direction: column;
-      padding: 0.5rem;
-    }
-
-    // Touch device support
-    @media (hover: none) {
-      .timeline-flip-inner {
-        transform: rotateY(180deg);
-      }
-    }
-  }
-
-  // Skills sphere section
   .skills-sphere {
     margin-top: 4rem;
     text-align: center;
@@ -156,23 +84,97 @@
     }
   }
 
-  // Animation fixes
-  .vertical-timeline-element-icon {
-    box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08) !important;
+  .loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .canvas-load {
+    width: 30px;
+    height: 30px;
+    border: 4px solid #f1f1f1;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  .loader-text {
+    color: #f1f1f1;
+    margin-top: 20px;
+  }
+
+  .vertical-timeline-element-content {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    min-height: 600px;
+    //border: 1px solid orange;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.02);
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+    }
   }
 
   @media screen and (min-width: 768px) {
-    .vertical-timeline-element {
-      margin: 2em 0 !important;
-
-      &:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content {
-        float: right !important;
+    .vertical-timeline {
+      &::before {
+        background: #fff;
+        left: 50% !important;
       }
 
-      &-icon {
-        left: 50% !important;
-        margin-left: -22px !important;
+      .vertical-timeline-element {
+        margin: 2em 0 !important;
+        height: 600px;
+        //min-height: 600px;
+        //border: 1px solid yellow;
+
+        &-content {
+          width: 45% !important;
+          height: 100%;
+          //border: 1px solid orange;
+        }
+
+        &:nth-child(even):not(.vertical-timeline-element--left)
+          .vertical-timeline-element-content {
+          float: right !important;
+        }
+
+        &-icon {
+          left: 50% !important;
+          margin-left: -22px !important;
+          box-shadow: 0 0 0 4px #fff,
+            inset 0 2px 0 rgba(0, 0, 0, 0.08) !important;
+        }
+      }
+    }
+
+    .vertical-timeline-element--left,
+    .vertical-timeline-element--right {
+      left: 0 !important;
+      padding: 0 !important;
+
+      .vertical-timeline-element-content {
+        margin-left: 0 !important;
+        border-radius: 6px !important;
       }
     }
   }
+
+  @media screen and (max-width: 767px) {
+    .timeline-flip-card {
+      margin-bottom: 2rem;
+    }
+
+    .timeline-flip-front,
+    .timeline-flip-back {
+      height: auto;
+      min-height: 280px;
+    }
+
+    .timeline-flip-back {
+      flex-direction: column;
+    }
+  }
 }
+

@@ -65,7 +65,6 @@ const About = () => {
             iconStyle={{ background: '#915EFF', color: '#fff' }}
             icon={<span style={{ fontSize: '1.5rem' }}>🚀</span>}
           >
-
           <motion.div
   initial={{ opacity: 0 }}
   whileInView={{ opacity: 1 }}
@@ -87,7 +86,7 @@ const About = () => {
   </div>
 </motion.div>
 
-                              </VerticalTimelineElement>
+                      </VerticalTimelineElement>
         ))}
       </VerticalTimeline>
 
