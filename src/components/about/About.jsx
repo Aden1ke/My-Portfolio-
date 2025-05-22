@@ -22,13 +22,13 @@ const personalEvents = [
     title: 'How It’s Going',
     description:
       'Today, my days are filled with contributing to open-source projects, attending hackathons, and learning new frameworks. You’ll often find me submitting pull requests on GitHub, swapping stories at tech meet-ups, or experimenting with a fresh API. Every commit is a chance to grow, and every collaboration expands my toolkit—so I never stop exploring.',
-    images: ['/tech_open.jpg', '/open_source.jpg'],
+    images: ['/tech_open.jpg'],
   },
   {
     title: 'What I Do in My Free Time',
     description:
       'Outside of code, I wear many hats: agriculturalist, shoemaker, and perpetual hobbyist. I love getting my hands dirty, whether that’s tending a garden, crafting a custom pair of shoes, or diving into a completely new field. All these adventures feed my creativity in software engineering, reminding me that inspiration can come from the most unexpected places.',
-    images: [],
+    images: ['/open_source.jpg'],
   },
 ];
 
@@ -48,35 +48,46 @@ const About = () => {
 
   return (
     <section className="about-timeline">
-      <h2 className="timeline-title">My Journey</h2>
+      <h2 className="timeline-title">About Me</h2>
       <VerticalTimeline>
         {personalEvents.map((event, index) => (
           <VerticalTimelineElement
             key={index}
-            className={
+            className={`timeline-element ${
               isDesktop
                 ? index % 2 === 0
                   ? 'vertical-timeline-element--left'
                   : 'vertical-timeline-element--right'
                 : ''
-            }
+            }`}
             contentStyle={{ background: '#1d1836', color: '#fff' }}
             contentArrowStyle={{ borderRight: '7px solid #1d1836' }}
             iconStyle={{ background: '#915EFF', color: '#fff' }}
             icon={<span style={{ fontSize: '1.5rem' }}>🚀</span>}
           >
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-              <h3 className="vertical-timeline-element-title">{event.title}</h3>
-              <p>{event.description}</p>
-              {event.images.length > 0 && (
-                <div className="timeline-images">
-                  {event.images.map((img, i) => (
-                    <img key={i} src={img} alt={`event-${i}`} />
-                  ))}
-                </div>
-              )}
-            </motion.div>
-          </VerticalTimelineElement>
+
+          <motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.5 }}
+  className="timeline-flip-card"
+>
+  <div className="timeline-flip-inner">
+    <div className="timeline-flip-front">
+      <h3 className="vertical-timeline-element-title">{event.title}</h3>
+      <p>{event.description}</p>
+    </div>
+    {event.images.length > 0 && (
+      <div className="timeline-flip-back">
+        {event.images.map((img, i) => (
+          <img key={i} src={img} alt={`event-${i}`} />
+        ))}
+      </div>
+    )}
+  </div>
+</motion.div>
+
+                              </VerticalTimelineElement>
         ))}
       </VerticalTimeline>
 

@@ -1,8 +1,9 @@
 .about-timeline {
-  background-color: #0f0f0f;
+  background: linear-gradient(#0c0c1d, #111132);
   padding: 3rem 1rem;
   color: #fff;
   position: relative;
+  overflow-x: hidden;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
 
@@ -12,33 +13,132 @@
 
   .timeline-title {
     text-align: center;
-    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 2rem;
+    font-size: 2.5rem;
   }
 
-  .timeline-images {
-    margin-top: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-
-    img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 2px solid #fff;
+  .vertical-timeline {
+    &::before {
+      background: #fff;
+      left: 50% !important;
+      margin-left: -1px !important;
     }
   }
 
+  .vertical-timeline-element-content {
+    overflow: visible;
+    width: 90%;
+    max-width: 600px;
+    margin: 1rem auto;
+    box-sizing: border-box;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      width: 45%;
+      margin: 1rem 0;
+    }
+  }
+
+  .timeline-flip-card {
+    width: 100%;
+    max-width: 600px;
+    min-height: 550px;
+    height: auto;
+    perspective: 1000px;
+    margin: 0 auto 2rem;
+    position: relative;
+
+    @media (max-width: 768px) {
+      width: 90%;
+      min-height: 300px;
+    }
+  }
+
+  .timeline-flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .timeline-flip-card:hover .timeline-flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  .timeline-flip-front,
+  .timeline-flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    padding: 1.5rem;
+  }
+
+  .timeline-flip-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background: #1d1836;
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #fff;
+
+      @media (max-width: 480px) {
+        max-width: 150px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .vertical-timeline-element-content {
+      width: 90% !important;
+      margin: 1rem auto !important;
+    }
+
+    .timeline-flip-inner {
+      flex-direction: column;
+    }
+
+    .timeline-flip-back {
+      flex-direction: column;
+      padding: 0.5rem;
+    }
+
+    // Touch device support
+    @media (hover: none) {
+      .timeline-flip-inner {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+
+  // Skills sphere section
   .skills-sphere {
     margin-top: 4rem;
     text-align: center;
 
     .skills-title {
-      font-size: 1.8rem;
-      font-weight: bold;
       margin-bottom: 2rem;
       color: #fff;
     }
@@ -56,65 +156,23 @@
     }
   }
 
-  .loader-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .canvas-load {
-    width: 30px;
-    height: 30px;
-    border: 4px solid #f1f1f1;
-    border-top: 4px solid transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
-
-  .loader-text {
-    font-size: 14px;
-    color: #f1f1f1;
-    font-weight: 800;
-    margin-top: 20px;
-  }
-
-  .vertical-timeline-element-content {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  // Animation fixes
+  .vertical-timeline-element-icon {
+    box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08) !important;
   }
 
   @media screen and (min-width: 768px) {
-    .vertical-timeline::before {
-      left: 50%;
-      transform: translateX(-50%);
-    }
+    .vertical-timeline-element {
+      margin: 2em 0 !important;
 
-    .vertical-timeline-element--left {
-      width: 50%;
-      left: 0 !important;
-      text-align: right;
-      padding-right: 2rem;
-
-      .vertical-timeline-element-content {
-        margin-left: auto;
-        border-radius: 6px 0 0 6px;
+      &:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content {
+        float: right !important;
       }
-    }
 
-    .vertical-timeline-element--right {
-      width: 50%;
-      left: 50% !important;
-      text-align: left;
-      padding-left: 2rem;
-
-      .vertical-timeline-element-content {
-        border-radius: 0 6px 6px 0;
+      &-icon {
+        left: 50% !important;
+        margin-left: -22px !important;
       }
-    }
-
-    .vertical-timeline-element-icon {
-      left: 50% !important;
-      transform: translateX(-50%);
     }
   }
 }
-

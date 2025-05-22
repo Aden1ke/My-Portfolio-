@@ -15,13 +15,35 @@ html {
   scroll-padding-top: 100px; // Match navbar height
 }
 
+
 body {
   min-height: 100vh;
   overflow-x: hidden;
   background-color: #0c0c1d;
+  
   color: lightgray;
   font-family: "DM Sans", sans-serif;
-  padding-top: 100px; // Space for fixed navbar
+ // padding-top: 100px; // Space for fixed navbar
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: lightgray;
 }
 
 a{
@@ -31,7 +53,6 @@ a{
 
 section {
   height: 100vh;
-  //min-height: 100vh;
   scroll-snap-align: start; // Changed from 'center' to fix gaps
   width: 100%; // Changed from 100vw
   overflow-x: hidden;
