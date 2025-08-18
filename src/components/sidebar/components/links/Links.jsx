@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 
+
 const variants ={
   open:{
     transition:{
@@ -25,33 +26,34 @@ const itemVariants ={
     opacity: 0,
     },
 }
-
-
 const Links = () => {
   const items = [
-    "Home",
-    "About",
-    "Projects",
-    "Portfolio",
-    "Contact",
-]
-
+    { name: "Home", id: "HomePage" },
+    { name: "About", id: "About" },
+    { name: "Projects", id: "Projects" },
+    { name: "Portfolio", id: "Portfolio" },
+    { name: "Contact", id: "Contact" },
+  ];
 
   return (
     <motion.div className='links' variants={variants}>
-      {items.map(item=>(
-        <motion.a 
-          href={`#${item}`}
-          key={item}
+      {items.map(item => (
+        <motion.a
+          href={`#${item.id}`}
+          key={item.id}
           variants={itemVariants}
-          whileHover={{ scale:1.1 }}
-          whileTap={{ scale:0.95 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          data-tooltip={item.name}
         >
-          {item}
+          {/* Add a span for the text to target with CSS */}
+          <span className="link-text">{item.name}</span>
         </motion.a>
       ))}
     </motion.div>
-  )
-}
+  );
+};
+
+
 
 export default Links
