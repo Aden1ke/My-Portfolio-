@@ -1,5 +1,5 @@
 /* Reset CSS */
-*,
+
 *::before,
 *::after {
   margin: 0;
@@ -16,21 +16,13 @@ html {
 }
 
 
-body {
-  min-height: 100vh;
-  overflow-x: hidden;
-  background-color: #0c0c1d;
-  
-  color: lightgray;
-  font-family: "DM Sans", sans-serif;
- // padding-top: 100px; // Space for fixed navbar
-}
 
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   color: white;
-  line-height: 1.2;
+  line-height: 1;
+  overflow-wrap: break-word;
 }
 
 h1 { font-size: 2.5rem; }
@@ -51,7 +43,71 @@ a{
   color: inherit;
 }
 
-section {
+
+body {
+  //display: grid;
+  //grid-template-columns: 280px 1fr;
+  overflow: hidden;
+  height: 100vh;
+  min-height: 100vh;
+  background-color: #0c0c1d;
+  color: lightgray;
+  font-family: "DM Sans", sans-serif;
+  -webkit-font-smoothing: antialiased; /* For Chrome, Safari, and other WebKit-based browsers */
+  -moz-osx-font-smoothing: grayscale; /* For Firefox on macOS */
+
+}
+
+
+
+/* New: Main container for your layout */
+.main-container {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  min-height: 100vh;
+}
+
+  @media (max-width: 768px) {
+  .main-container {
+    // Mobile layout: only the content area takes up the full width. The sidebar will be a modal overlay.
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  h5 { font-size: 1rem; }
+  h6 { font-size: 0.8rem; }
+}
+
+
+
+/* New: Content area styling */
+.content {
+  //flex-grow: 1;
+  overflow-y: auto;
+  /* Hide the scrollbar itself */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox 
+
+  /* For Webkit browsers (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+/*section {
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/*section {
   height: 100vh;
   scroll-snap-align: start; // Changed from 'center' to fix gaps
   width: 100%; // Changed from 100vw
@@ -72,4 +128,4 @@ section {
     height: 1px;
     margin-top: -1px;
   }
-}
+}*/
