@@ -1,7 +1,5 @@
 import { animate, motion, optimizedAppearDataAttribute } from "framer-motion";
 import "./home.scss";
-import { initCompiler } from "sass";
-
 
 const textVariants={
   initial: {
