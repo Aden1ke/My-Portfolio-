@@ -2,8 +2,8 @@ import './app.scss'
 import Sidebar from './components/sidebar/Sidebar';
 import Home from './components/home/Home';
 import About from './components/about/About';
-//import Contact from './components/contact/Contact';
-//import Projects from "./components/projects/Projects";
+import Contact from './components/contact/Contact';
+import Projects from "./components/projects/Projects";
 
 
 
@@ -20,13 +20,12 @@ const App = () => {
           <section id="About">
             <About />
           </section>
-      {/*
         <section id="Projects">
           <Projects />
         </section>
         <section id="Contact">
           <Contact />
-        </section>*/}
+        </section>
         </div>
       </div>
   );
