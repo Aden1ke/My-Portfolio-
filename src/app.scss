@@ -47,9 +47,9 @@ a{
 body {
   //display: grid;
   //grid-template-columns: 280px 1fr;
-  overflow: hidden;
-  height: 100vh;
-  min-height: 100vh;
+  //overflow: hidden;
+  //height: 100vh;
+  //min-height: 100vh;
   background-color: #0c0c1d;
   color: lightgray;
   font-family: "DM Sans", sans-serif;
@@ -63,8 +63,24 @@ body {
 /* New: Main container for your layout */
 .main-container {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  //grid-template-columns: 200px 1fr;
   min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 280px;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+  .content {
+    padding-left: 280px;
+    overflow-y: auto;
+  }
 }
 
   @media (max-width: 768px) {
@@ -88,6 +104,8 @@ body {
 
 /* New: Content area styling */
 .content {
+  //margin-left: 250px;
+  //padding: 20px;
   //flex-grow: 1;
   overflow-y: auto;
   /* Hide the scrollbar itself */

@@ -90,7 +90,7 @@ const About = () => {
         ))}
       </VerticalTimeline>
 
-      <SkillsSphere />
+    <SkillsSphere />
     </section>
   );
 };
